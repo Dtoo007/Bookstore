@@ -1,0 +1,40 @@
+# In the following requests the variable baseUrl is used.
+# Its value is set here.
+
+@baseUrl = http://localhost:4004
+
+GET {{baseUrl}}/odata/v4/my
+
+###---------------------------------------
+GET {{baseUrl}}/odata/v4/my/$metadata
+
+###---------------------------------------
+GET {{baseUrl}}/odata/v4/my/Books
+
+
+
+###---------------------------------------
+POST {{baseUrl}}/odata/v4/my/Orders
+Content-Type: application/json
+
+{
+  "buyer": "Abbaz Oladimeji",
+  "book_ID": "b1a8012e-7b6d-4f9a-9a3e-987654321def",
+  "amount": 3
+}
+
+###----------------------
+POST {{baseUrl}}/odata/v4/my/Orders
+Content-Type: application/json
+
+{
+  "buyer": "Josh",
+  "amount": 5
+}
+
+
+###----------------------
+DELETE {{baseUrl}}/odata/v4/my/Orders(1)
+
+
+

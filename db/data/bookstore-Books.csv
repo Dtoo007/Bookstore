@@ -1,0 +1,6 @@
+ID,title,author_ID,description,stock,price,createdAt,createdBy,modifiedAt,modifiedBy
+1,Wuthering Heights,1,A gothic romance novel set on the Yorkshire moors,12,11.99,,,
+2,Jane Eyre,2,A coming-of-age story of an orphaned girl,8,9.99,,,
+3,The Raven,3,A narrative poem of mystery and macabre,15,5.99,,,
+4,Pride and Prejudice,4,A romantic novel of manners,20,12.99,,,
+5,Emma,4,A comedy of manners about a young woman,10,10.99,,,

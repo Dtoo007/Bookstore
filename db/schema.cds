@@ -1,3 +1,4 @@
+namespace bookstore;
 using { cuid, managed } from '@sap/cds/common';
 
 entity Books: cuid, managed {
@@ -10,7 +11,7 @@ entity Books: cuid, managed {
 
 entity Authors: cuid, managed {
         name: String;
-        books: Association to many Books;
+        books: Association to many Books on books.author = $self;
 }
 
 entity Orders: cuid, managed {
