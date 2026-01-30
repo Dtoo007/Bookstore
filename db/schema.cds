@@ -7,7 +7,24 @@ entity Books: cuid, managed {
         description: String(255);
         stock: Integer;
         price: Decimal(9, );
+        status: Association to BookStatus;
 }
+
+entity BookStatus {
+        key code:  String(1) enum {
+        Available = 'A';
+        Low_Stock = 'L';
+        Unavailable = 'U';
+}
+        criticality: Integer;
+        displayText: String;
+}
+
+// type BookStatusCode: String(1) enum {
+//         Available = 'A';
+//         Low_Stock = 'L';
+//         Unavailable = 'U';
+// }
 
 entity Authors: cuid, managed {
         name: String;
