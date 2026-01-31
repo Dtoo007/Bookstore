@@ -1,9 +1,16 @@
 using MyService as service from '../../srv/my-service';
-@Odata.draft.enable
+using from '@sap/cds/common';
+
+
 annotate service.Books with @(
     UI.FieldGroup #GeneratedGroup : {
         $Type : 'UI.FieldGroupType',
         Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : title,
+                Label : 'Title',
+            },
             {
                 $Type : 'UI.DataField',
                 Label : 'Description',
@@ -13,6 +20,11 @@ annotate service.Books with @(
                 $Type : 'UI.DataField',
                 Label : 'Stock',
                 Value : stock,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : currency_code,
+                Label : 'Currency',
             },
             {
                 $Type : 'UI.DataField',
@@ -202,4 +214,8 @@ annotate service.BookStatus with {
         Common.Text : displayText,
         Common.Text.@UI.TextArrangement : #TextOnly,
 )};
+
+annotate service.Books with {
+    currency @Common.ValueListWithFixedValues : true
+};
 

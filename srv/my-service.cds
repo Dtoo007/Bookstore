@@ -11,3 +11,4 @@ service MyService {
     entity BookStatus as projection on bs.BookStatus;
 
 }
+annotate MyService.Books with @odata.draft.enabled;

@@ -1,12 +1,13 @@
 namespace bookstore;
-using { cuid, managed } from '@sap/cds/common';
+using { cuid, managed, sap.common.Currencies } from '@sap/cds/common';
 
 entity Books: cuid, managed {
         title: String;
         author: Association to Authors;
         description: String(255);
         stock: Integer;
-        price: Decimal(9, );
+        price: Decimal(9, 2);
+        currency: Association to Currencies;
         status: Association to BookStatus;
 }
 
