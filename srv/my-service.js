@@ -7,6 +7,29 @@ class MyService extends cds.ApplicationService {
         //register handler for orders
         this.before(['CREATE, READ'], Orders, this.validateOrder);
         this.after('READ', Orders, this.enrichOrder);
+        this.on('addStock', Books, async (req) => {
+            // console.log(req.params)
+            const bookId = req.params[0].ID
+            
+            await UPDATE(Books)
+            .set({createdAT:newDate})
+            .where({ID: bookId})
+            // console.log(bookId)
+        });
+
+        this.on('changePublishDate', Books, async(req)=>{
+            const newDate = req.data.newDate
+            await UPDATE(Books)
+            .set({stock: {'+=': 1}})
+            .where()
+        })
+
+        this.on('changeStatus', Books, async(req)=>{
+            const newStatus = req.data.newStatus
+            await UPDATE(Books)
+            .set({status_code: newStatus})
+            .where()
+        })
 
         return super.init();
     }
@@ -26,6 +49,9 @@ class MyService extends cds.ApplicationService {
     enrichOrder(order) {
         order.summary = `${order.buyer} placed an order worth ${order.amount}`
     }
+    // addStock(req) {
+    //     console.log(req.data)
+    // }
 
 }
 
